@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base href="/">
+  <title>Dash App</title>
+  <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+  <script src="assets/js/lib/angular.min.js"></script>
+  <script src="assets/js/lib/angular-route.min.js"></script>
+
+  <script src="assets/js/controllers/MainCtrl.js"></script>
+  <script src="assets/js/controllers/NerdCtrl.js"></script>
+  <script src="assets/js/services/NerdService.js"></script>
+  <script src="assets/js/appRoutes.js"></script>
+  <script src="assets/js/app.js"></script>
+</head>
+<body ng-app="dashApp" ng-controller="NerdController">
+<div class="container">
+  <nav class="navbar navbar-inverse">
+    <div class="navbar-header">
+      <a href="/" class="navbar-brand">Stencil: Node and Angular</a>
+    </div>
+
+    <ul class="nav navbar-nav">
+      <li><a href="/nerds">Nerds</a></li>
+    </ul>
+  </nav>
+  <div ng-view></div>
+</div>
+</body>
+</html>
