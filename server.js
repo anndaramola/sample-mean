@@ -2,26 +2,26 @@
 var express         = require('express');
 var app             = express();
 var bodyParser      = require('body-parser');
-var methodOverride  = require('method-override');
+var mongoose        = require('mongoose');
 
-var db = require('./config/db');
+var Bear = require('./app/models/bear');
 
-//var port = process.env.PORT || 8080;
-var port = 8082;
-
-//mongoose.connect(db.url);
-
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-app.use(bodyParser.json({ type: 'application/vnd.api+json'}));
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(methodOverride('X-HTTP-Method-Override'));
-app.use(express.static(__dirname + '/public'));
+var port = 8082;
 
-require('./app/routes')(app);
+var router = express.Router();
+
+// middleware
+router.use(function(req, res, next){
+  console.log('Request!');
+  next();
+});
+router.get('/', function(req,res){
+  res.json({ message: 'welcome to the api' });
+});
+app.use('/api', router);
 
 app.listen(port);
-
 console.log('Magic happens on port ' + port);
-
-exports = module.exports = app;

@@ -1,1 +1,10 @@
-angular.module('dashApp',['ngRoute','appRoutes','MainCtrl','NerdCtrl','NerdService']);
+angular.module('dashApp',
+    [
+        'ngRoute',
+        'appRoutes',
+        'MainCtrl',
+        'PageCtrl',
+        'NerdCtrl',
+        'NerdService'
+    ]
+);
